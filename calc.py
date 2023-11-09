@@ -53,22 +53,26 @@ while True:
     5. Виконати зведення в ступінь
     6. Дізнатись квадратний корінь чисел
     7. Дізнатись кубічний корінь чисел
-    8. Вихід з програми
+    8. Факторіал числа
+    9. Вихід з програми
     ''')
 
-    operation = input('Оберіть операцію або введіть "8" для завершення: ')
+    operation = input('Оберіть операцію або введіть "9" для завершення: ')
 
-    if operation == '8':
+    if operation == '9':
         break
 
-    if operation not in ['1', '2', '3', '4', '5', '6', '7']:
+    if operation not in ['1', '2', '3', '4', '5', '6', '7', '8']:
         print('Такої операції не існує!')
         sleep(2)
         continue
 
     try:
-        num1 = float(input('Введіть перше число: '))
-        num2 = float(input('Введіть друге число: '))
+        if operation == '8':
+            num1 = int(input('Введіть число: '))
+        if operation !='8':
+            num1 = float(input('Введіть перше число: '))
+            num2 = float(input('Введіть друге число: '))
         if operation in ['1', '2', '3', '4', '5']:
             result = 0
             if operation == '1':
@@ -93,6 +97,9 @@ while True:
             result1, result2 = cube_roots(num1, num2)
             print(f'Кубічний корінь з {num1} дорівнює {result1}')
             print(f'Кубічний корінь з {num2} дорівнює {result2}')
+        elif operation == '8':
+            fac = math.factorial(num1)
+            print(f"Факторіал числа {num1} = {fac} ")
         sleep(2)
 
     except ValueError:
